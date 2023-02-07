@@ -8,9 +8,9 @@ public class MusicButton : MonoBehaviour
     [SerializeField] private Text _buttonName;
 
 
-    public void Init(int index, string name, Action click)
+    public void Init(int index, string name, Action<int> click)
     {
         _buttonName.text = name;
-        _button.onClick.AddListener(delegate { click.Invoke(); });
+        _button.onClick.AddListener(delegate { click.Invoke(index); });
     }
 }

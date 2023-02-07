@@ -12,13 +12,14 @@ public class MusicManager : MonoBehaviour
     {
         for (int i = 0; i < _musics.Length; i++)
         {
-            Instantiate(_musicButtonPrefab, _buttonParrent).Init(i, _musics[i].name, () => PlayClip(i));
+            Instantiate(_musicButtonPrefab, _buttonParrent).Init(i, _musics[i].name, PlayClip);
         }
     }
 
 
     public void PlayClip(int index)
     {
+        Debug.Log("Проигрывается клип под индексом " + index);
         _audioSource.clip = _musics[index].clip;
         _audioSource.Play();
     }
