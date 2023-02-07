@@ -1464,11 +1464,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musics:
   - name: "\u041C\u0443\u0437\u044B\u043A\u0430 1"
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7fbbe3c7360116a4989ffe4bd2b8bccb, type: 3}
   - name: "\u041C\u0443\u0437\u044B\u043A\u0430 2"
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 62ab66e0ff8eb5847a790e0ba1ac6f26, type: 3}
   - name: "\u041C\u0443\u0437\u044B\u043A\u0430 3"
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c4dc3cd85ea098542b8814dbdc44f9ca, type: 3}
   _audioSource: {fileID: 1321672877}
   _musicButtonPrefab: {fileID: 5371435661202710375, guid: 8c0190d2c77aa12479155addd6b5b533, type: 3}
   _buttonParrent: {fileID: 398215716}
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1936623388}
   m_HandleRect: {fileID: 1936623387}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
