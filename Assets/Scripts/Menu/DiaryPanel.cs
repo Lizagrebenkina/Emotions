@@ -25,19 +25,13 @@ public class DiaryPanel : MonoBehaviour
     }
 
 
-    public void AddedDiaryLine(string text)
-    {
-        string path = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
-
-        AddedTextToFile(path, $"{GetCurrentData()} text\n");
+    private string GetCurrentData(){
+        String.Format("{0:g}", DateTime.Now);
     }
-
-
-    private string GetCurrentData() => $"[{String.Format("{0:g}", DateTime.Now)}]";
-
-    private string ReadTextFromFile(string path)
-    {
-        string text = "";
+    
+        private string ReadTextFromFile(string path)
+        {
+            string text = "";
 
         if (System.IO.File.Exists(path) == false) AddedTextToFile(path, "");
 
