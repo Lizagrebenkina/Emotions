@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.IO;
 
 public class DiaryPanel : MonoBehaviour
@@ -19,15 +20,19 @@ private void Start()
     string path = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
 
 Debug.Log(path);
-    AddedTextToFile(path, GetCurrentData());
 
     _text.text = ReadTextFromFile(path);
 }
 
 
-    private string GetCurrentData(){
-        String.Format("{0:g}", DateTime.Now);
-    }
+public void AddedDiaryLine(string text){
+    string path = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
+
+    AddedTextToFile(path, $"{GetCurrentDate()} text\n");
+}
+
+
+    private string GetCurrentData() => $"[{String.Format("{0:g}", DateTime.Now)}]";
     
         private string ReadTextFromFile(string path)
         {
