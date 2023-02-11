@@ -11,4 +11,6 @@ public class PrefsName : MonoBehaviour
     public const string FirstNameKey = "FirstName"; //string
     public const string LastNameKey = "LastName"; //string
     public const string QuestionnaireComplete = "CompleteTest"; //int
+
+    public const string DiaryFileName = "Diary.txt";
 }

@@ -8,6 +8,8 @@ public class Registration : MonoBehaviour
     [SerializeField] private GameObject _authorationCanvas;
 
     public void Apply(){
+        PlayerPrefs.DeleteAll();
+
         PlayerPrefs.SetString(PrefsName.PinKey, _registrationUI.pin);
         PlayerPrefs.SetString(PrefsName.FirstNameKey, _registrationUI.firstName);
         PlayerPrefs.SetString(PrefsName.LastNameKey, _registrationUI.lastName);
