@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _showMenuButton;
  
-    [SerializeField] private int _mood = 50;
+    [SerializeField] private int _mood = 0;
     [SerializeField] private Result _result;
     [SerializeField] private Text _resultText;
 

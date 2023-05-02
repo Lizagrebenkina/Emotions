@@ -14,22 +14,46 @@ public class DiaryPanel : MonoBehaviour
     //при нажатии принять дописывать текст
 
     [SerializeField] private Text _text;
+    [SerializeField] private InputField _inputField;
+    private string _newText;
+    private string _filePath;
 
     private void Start()
     {
-        string path = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
+        _filePath = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
+        Debug.Log(_filePath);
 
-        Debug.Log(path);
-
-        _text.text = ReadTextFromFile(path);
+        _text.text = ReadTextFromFile(_filePath);
     }
 
 
-    public void AddedDiaryLine(string text)
+    public void ChangeText(string text){
+        _newText = text;
+    }
+
+    public void Apply(){
+        AddedDiaryLine(_newText);
+        _text.text = ReadTextFromFile(_filePath);
+        ClearInputField();
+    }
+
+    public void Cansel(){
+        ClearInputField();
+    }
+
+    private void ClearInputField(){
+        _inputField.Select();
+        _inputField.text = "";
+        _newText = "";
+    }
+
+
+
+    private void AddedDiaryLine(string text)
     {
         string path = Path.Combine(Application.persistentDataPath, PrefsName.DiaryFileName);
 
-        AddedTextToFile(path, $"{GetCurrentData()} text\n");
+        AddedTextToFile(path, $"\n{GetCurrentData()} {text}");
     }
 
 
@@ -48,7 +72,7 @@ public class DiaryPanel : MonoBehaviour
     }
     private void AddedTextToFile(string path, string text)
     {
-        using (StreamWriter sw = new StreamWriter(path))
+        using (StreamWriter sw = new StreamWriter(path, true))
             sw.WriteLine(text);
     }
 }
